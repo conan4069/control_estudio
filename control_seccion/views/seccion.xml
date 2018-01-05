@@ -1,0 +1,132 @@
+<odoo>
+  <data>
+
+    <record id='ctrl_estudiantes_form' model='ir.ui.view'>
+      <field name="name">control_seccion.estudiantes.view.form</field>
+      <field name="model">control_seccion.estudiantes</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+              <group>
+                <field name="name"></field>
+                <field name="identification"/>
+              </group>
+              <group>
+                <field name="last_name"/>
+              </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id='ctrl_estudiantes_tree' model='ir.ui.view'>
+      <field name="name">control_seccion.estudiantes.view.tree</field>
+      <field name="model">control_seccion.estudiantes</field>
+      <field name="arch" type="xml">
+        <tree editable='bottom'>
+          <field name="name"/>
+          <field name="last_name"/>
+          <field name="identification"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record id='ctrl_grado_form' model='ir.ui.view'>
+        <field name="name">control_seccion.grado.view.form</field>
+        <field name="model">control_seccion.grado</field>
+        <field name="arch" type="xml">
+          <form>
+            <group>
+              <group>
+                <field name="grado"></field>
+              </group>
+              <group>
+                <field name="nivel"/>
+              </group>
+            </group>
+          </form>
+        </field>
+      </record>
+
+      <record id='ctrl_materias_form' model='ir.ui.view'>
+        <field name="name">control_seccion.materias.view.form</field>
+        <field name="model">control_seccion.materias</field>
+        <field name="arch" type="xml">
+          <form>
+            <group>
+              <group>
+                <field name="materia"/>
+              </group>
+              <group>
+                <field name="grado"/>
+              </group>  
+            </group>
+          </form>
+        </field>
+      </record>
+
+    <record id='ctrl_materias_tree' model='ir.ui.view'>
+      <field name="name">control_seccion.materias.view.tree</field>
+      <field name="model">control_seccion.materias</field>
+      <field name="arch" type="xml">
+        <tree editable='bottom'>
+          <field name="materia"/>
+          <field name="grado"/>
+        </tree>
+      </field>
+    </record>
+    
+    <record id='ctrl_seccion_form' model='ir.ui.view'>
+      <field name="name">control_seccion.seccion.view.form</field>
+      <field name="model">control_seccion.seccion</field>
+      <field name="arch" type="xml">
+        <form>
+          <group string='Datos básicos'>
+            <group>
+              <field name="grado"></field>
+              <field name="periodo"/>
+              <field name="max_exam"/>
+            </group>
+            <group>
+              <field name="seccion"/>
+              <field name="max_lapso"/>
+            </group>
+          </group>
+          <notebook>
+            <page name="estudiantes" string="Alumnos">
+              <field name="alumnos"/>
+            </page>
+            <page name="materia" string="Materias">
+              <field name="materia"/>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+
+    <record id='ctrl_seccion_tree' model='ir.ui.view'>
+      <field name="name">control_seccion.seccion.view.tree</field>
+      <field name="model">control_seccion.seccion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="grado"></field>
+          <field name="seccion"/>
+          <field name="periodo"/>
+        </tree>
+      </field>
+    </record>
+
+  <record id='action_salon' model="ir.actions.act_window">
+    <field name="name">Seccion de clases</field>
+        <field name="res_model">control_seccion.seccion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+  </record>
+
+  <menuitem id="main_salon_clases_menu" name="Salon de clases"/>
+  <menuitem id="salon_menu" name="Salon de clases" parent="main_salon_clases_menu" action="action_salon"/>
+  </data>
+</odoo>

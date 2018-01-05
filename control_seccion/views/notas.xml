@@ -1,0 +1,47 @@
+<odoo>
+<data>
+
+    <!-- Boletin information -->
+
+    <record id='ctrl_boletin_tree' model='ir.ui.view'>
+      <field name="name">control_seccion.boletin.view.tree</field>
+      <field name="model">control_seccion.boletin</field>
+      <field name="arch" type="xml">
+        <tree create="False">
+          <field name="seccion"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_boletin_form' model='ir.ui.view'>
+      <field name="name">control_seccion.boletin.view.form</field>
+      <field name="model">control_seccion.boletin</field>
+      <field name="arch" type="xml">
+        <form create="False">
+            <group>
+                <field name="seccion"/>
+                <field name="full_lapsos" invisible="1"/>
+            </group>
+            <notebook>
+                <page name="lapsos" string="Lapsos">
+                    <field name="lineas_lapsos" attrs="{'readonly':[('full_lapsos','=',True)]}"/>
+                </page>
+            </notebook>
+        </form>
+      </field>
+    </record>
+
+
+    <record id='action_boletin' model="ir.actions.act_window">
+        <field name="name">Seccion de clases</field>
+        <field name="res_model">control_seccion.boletin</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="boletin_label" name="Control de boletines" parent="main_salon_clases_menu"/>
+    <menuitem id="boletin_menu" name="Boletin" parent="boletin_label" action="action_boletin"/>
+</data>
+</odoo>
