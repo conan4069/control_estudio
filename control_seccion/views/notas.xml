@@ -1,23 +1,331 @@
 <odoo>
 <data>
+    <!-- tema -->
+        <record id='ctrl_contenido_tree' model='ir.ui.view'>
+      <field name="name">contenido.view.tree</field>
+      <field name="model">control_seccion.contenido</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="lapso" readonly='1'/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_contenido_form' model='ir.ui.view'>
+      <field name="name">contenido.view.form</field>
+      <field name="model">control_seccion.contenido</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <group>
+                    <field name="name"/> 
+                </group>
+                <group>
+                    <field name="lapso" readonly='1'/>
+                </group>
+            </group>
+        </form>
+      </field>
+    </record>
+    <!-- tipo de evaluacion -->
+    <record id='ctrl_tipo_eval_tree' model='ir.ui.view'>
+      <field name="name">tipo_eval.view.tree</field>
+      <field name="model">control_seccion.tipo_eval</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_tipo_eval_form' model='ir.ui.view'>
+      <field name="name">tipo_eval.view.form</field>
+      <field name="model">control_seccion.tipo_eval</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="name"/>
+            </group>
+        </form>
+      </field>
+    </record>
+    <!-- Planificacion information -->
+    <record id='ctrl_planificacion_tree' model='ir.ui.view'>
+      <field name="name">planificacion.view.tree</field>
+      <field name="model">control_seccion.planificacion</field>
+      <field name="arch" type="xml">
+        <tree colors="green: state == 'ending'" decoration-danger="state == 'draft'">
+          <field name="materia"/>
+          <field name="lapso"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_planificacion_form' model='ir.ui.view'>
+      <field name="name">planificacion.view.form</field>
+      <field name="model">control_seccion.planificacion</field>
+      <field name="arch" type="xml">
+        <form>
+            <header>
+                <field name="state" statusbar_visible="draft,ending" widget="statusbar"/>
+            </header>
+            <group>
+                <field name="lapso"/>
+                <field name="materia"/>
+            </group>
+            <notebook>
+                <page name="planificacion" string="Planificacion">
+                    <field name="lineas_plan" context="{'default_plan_id':active_id,'plan':context.get('lineas_plan',False)}"/>
+                </page>
+                <page name="indicador_page" string="Indicador">
+                    <field name="indicador" context="{'default_plan_id':active_id,'plan':context.get('lineas_plan',False),'ind':context.get('indicador',False)}"/>
+                </page>
+            </notebook>
+        </form>
+      </field>
+    </record>
+
+    <!-- Planificacion Lineas -->
+
+    <record id='ctrl_planificacion_line_tree' model='ir.ui.view'>
+      <field name="name">planificacion_line.view.tree</field>
+      <field name="model">control_seccion.planificacion_line</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom">
+          <field name="plan_id" invisible="1"/>
+          <field name="contenido"/>
+          <field name="tipo_eval_id"/>
+          <field name="fecha"/>
+          <field name="check"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_planificacion_line_form' model='ir.ui.view'>
+      <field name="name">planificacion_line.view.form</field>
+      <field name="model">control_seccion.planificacion_line</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <group>
+                    <field name="plan_id" invisible="1"/>
+                    <field name="contenido"/>
+                    <field name="fecha"/>
+                </group>
+                <group>
+                    <field name="tipo_eval_id"/>
+                    <field name="check"/>
+                </group>
+            </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Indicador template -->
+
+    <record id='ctrl_ind_template_tree' model='ir.ui.view'>
+      <field name="name">ind_template.view.tree</field>
+      <field name="model">control_seccion.ind_template</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="plan_id" invisible='1'/>
+            <field name="tema" options="{'no_create':True,'no_create_edit':True}"/>
+            <field name="logros"/>
+            <field name="debilidades"/>
+            <field name="min_logro"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_ind_template_form' model='ir.ui.view'>
+      <field name="name">ind_template.view.form</field>
+      <field name="model">control_seccion.ind_template</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="plan_id" invisible="1"/>
+                <group>
+                    <field name="tema" options="{'no_create':True,'no_create_edit':True}"/>
+                    <field name="logros"/>
+                </group>
+                <group>
+                    <field name="min_logro"/>
+                    <field name="debilidades"/>
+                </group>
+            </group>
+        </form>
+      </field>
+    </record>    
+
+    <!-- Indicador principal -->
+
+    <record id='ctrl_ind_main_tree' model='ir.ui.view'>
+      <field name="name">ind_main.view.tree</field>
+      <field name="model">control_seccion.ind_main</field>
+      <field name="arch" type="xml">
+        <tree create="false" editable="bottom">
+          <field name="materia_alumno_id" invisible="1"/>
+          <field name="tema"/>
+          <field name="logros"/>
+          <field name="check"/>
+          <field name="debilidades"/>
+          <field name="check2"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_ind_main_form' model='ir.ui.view'>
+      <field name="name">ind_main.view.form</field>
+      <field name="model">control_seccion.ind_main</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="materia_alumno_id" invisible="1"/>
+                <field name="tema"/>
+                <group>
+                  <field name="logros"/>
+                  <field name="check"/>
+                </group>
+                <group>
+                  <field name="debilidades"/>
+                  <field name="check2"/>        
+                </group>
+            </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Materias por alumnos -->
+
+    <record id='ctrl_materia_alumno_tree' model='ir.ui.view'>
+      <field name="name">materia_alumno.view.tree</field>
+      <field name="model">control_seccion.materia_alumno</field>
+      <field name="arch" type="xml">
+        <tree create="false">
+          <field name="materia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_materia_alumno_form' model='ir.ui.view'>
+      <field name="name">materia_alumno.view.form</field>
+      <field name="model">control_seccion.materia_alumno</field>
+      <field name="arch" type="xml">
+        <form create="false">
+            <header>
+                <buttom type='object' 
+                    name='crear_indicadores' 
+                    string="Actualizar indicadores" 
+                    class='btn btn_primary'
+                />
+            </header>
+            <group>
+                <group>
+                    <field name="materia"/>   
+                </group>
+                <group>
+                    <field name="alumno_id"/>
+                </group>
+            </group>
+            <notebook>
+                <page name="notas_page" string="Notas">
+                    <field name="notas" options="{'no_create':True,'no_create_edit':True}"/>
+                </page>
+                <page name="indicadores_page" string="Indicadores">
+                    <field name="indicadores"/>
+                </page>
+            </notebook>
+        </form>
+      </field>
+    </record>
+    <!-- Alumnos lapso -->
+
+    <record id='ctrl_alumnos_lapso_tree' model='ir.ui.view'>
+      <field name="name">alumnos_lapso.view.tree</field>
+      <field name="model">control_seccion.alumnos_lapso</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="boletin_id" invisible="1"/>
+          <field name="alumnos_ids"/>
+          <field name="lapso" invisible="1"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_alumnos_lapso_form' model='ir.ui.view'>
+      <field name="name">alumnos_lapso.view.form</field>
+      <field name="model">control_seccion.alumnos_lapso</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <group>
+                    <field name="boletin_id" invisible="1"/>
+                    <field name="alumnos_ids"/>
+                </group>
+                <group>
+                    <field name="lapso" readonly="1"/>
+                </group>
+            </group>
+            <notebook>
+                <page name="materias_lapso" string="Materias">
+                    <field name="materia"/>
+                </page>
+            </notebook>
+        </form>
+      </field>
+    </record>
+
+    <!-- Lapso information -->
+    <record id='ctrl_lapso_tree' model='ir.ui.view'>
+      <field name="name">lapso.view.tree</field>
+      <field name="model">control_seccion.lapso</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nro_lapso"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_lapso_form' model='ir.ui.view'>
+      <field name="name">lapso.view.form</field>
+      <field name="model">control_seccion.lapso</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="nro_lapso"/>
+                <field name="boletin_id" invisible="1"/>
+            </group>
+            <notebook>
+                <page name="planificacion" string="Planificacion">
+                    <field name="plan_ids"/>
+                </page>
+                <page name="alumnos" string="Alumnos">
+                    <field name="alumnos_ids"/>
+                </page>
+            </notebook>
+        </form>
+      </field>
+    </record>
 
     <!-- Boletin information -->
 
     <record id='ctrl_boletin_tree' model='ir.ui.view'>
-      <field name="name">control_seccion.boletin.view.tree</field>
+      <field name="name">boletin.view.tree</field>
       <field name="model">control_seccion.boletin</field>
       <field name="arch" type="xml">
-        <tree create="False">
+        <tree create="false">
           <field name="seccion"/>
         </tree>
       </field>
     </record>
 
     <record id='ctrl_boletin_form' model='ir.ui.view'>
-      <field name="name">control_seccion.boletin.view.form</field>
+      <field name="name">boletin.view.form</field>
       <field name="model">control_seccion.boletin</field>
       <field name="arch" type="xml">
-        <form create="False">
+        <form create="false">
             <group>
                 <field name="seccion"/>
                 <field name="full_lapsos" invisible="1"/>
@@ -31,7 +339,85 @@
       </field>
     </record>
 
+    <!-- Notas main -->
+    <record id='ctrl_notas_main_tree' model='ir.ui.view'>
+      <field name="name">notas_main.view.tree</field>
+      <field name="model">control_seccion.notas_main</field>
+      <field name="arch" type="xml">
+        <tree editable='bottom'>
+          <field name="plan_id" invisible='1'/>
+          <field name="materia" invisible="1"/>
+          <field name="seccion" invisible="1"/>
+          <field name="alumno"/> 
+          <field name="contenido"/>
+          <field name="nota"/>
+          <field name="porcentaje"/>
+          <field name="nota_total"/>
+        </tree>
+      </field>
+    </record>
 
+    <record id='ctrl_notas_main_form' model='ir.ui.view'>
+      <field name="name">notas_main.view.form</field>
+      <field name="model">control_seccion.notas_main</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+              <field name="materia" invisible="1"/>
+              <field name="seccion" invisible="1"/>
+              <field name="plan_id" invisible='1'/>
+              <group>
+                <field name="alumno"/> 
+                <field name="nota"/>
+                <field name="nota_total"/>
+              </group>
+              <group>
+                <field name="contenido"/>
+                <field name="porcentaje"/>
+              </group>
+            </group>
+        </form>
+      </field>
+    </record>
+    
+    <!-- Notas template -->
+    <record id='ctrl_notas_template_tree' model='ir.ui.view'>
+      <field name="name">notas_template.view.tree</field>
+      <field name="model">control_seccion.notas_template</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="seccion"/>
+          <field name="materia"/>
+          <field name="lapso"/> 
+          <field name="plan_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id='ctrl_notas_template_form' model='ir.ui.view'>
+      <field name="name">notas_template.view.form</field>
+      <field name="model">control_seccion.notas_template</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+              <group>
+                  <field name="seccion"/>
+                  <field name="materia"/>
+              </group>
+              <group>
+                <field name="lapso"/> 
+                <field name="plan_id"/>
+              </group>
+            </group>
+            <notebook>
+                <page name="notas_pager" string="Notas">
+                    <field name="notas"/>
+                </page>
+            </notebook>
+        </form>
+      </field>
+    </record>
+    
     <record id='action_boletin' model="ir.actions.act_window">
         <field name="name">Seccion de clases</field>
         <field name="res_model">control_seccion.boletin</field>

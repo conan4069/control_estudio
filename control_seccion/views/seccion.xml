@@ -2,7 +2,7 @@
   <data>
 
     <record id='ctrl_estudiantes_form' model='ir.ui.view'>
-      <field name="name">control_seccion.estudiantes.view.form</field>
+      <field name="name">estudiantes.view.form</field>
       <field name="model">control_seccion.estudiantes</field>
       <field name="arch" type="xml">
         <form>
@@ -20,7 +20,7 @@
     </record>
 
     <record id='ctrl_estudiantes_tree' model='ir.ui.view'>
-      <field name="name">control_seccion.estudiantes.view.tree</field>
+      <field name="name">estudiantes.view.tree</field>
       <field name="model">control_seccion.estudiantes</field>
       <field name="arch" type="xml">
         <tree editable='bottom'>
@@ -33,7 +33,7 @@
 
 
     <record id='ctrl_grado_form' model='ir.ui.view'>
-        <field name="name">control_seccion.grado.view.form</field>
+        <field name="name">grado.view.form</field>
         <field name="model">control_seccion.grado</field>
         <field name="arch" type="xml">
           <form>
@@ -50,7 +50,7 @@
       </record>
 
       <record id='ctrl_materias_form' model='ir.ui.view'>
-        <field name="name">control_seccion.materias.view.form</field>
+        <field name="name">materias.view.form</field>
         <field name="model">control_seccion.materias</field>
         <field name="arch" type="xml">
           <form>
@@ -67,7 +67,7 @@
       </record>
 
     <record id='ctrl_materias_tree' model='ir.ui.view'>
-      <field name="name">control_seccion.materias.view.tree</field>
+      <field name="name">materias.view.tree</field>
       <field name="model">control_seccion.materias</field>
       <field name="arch" type="xml">
         <tree editable='bottom'>
@@ -78,10 +78,14 @@
     </record>
     
     <record id='ctrl_seccion_form' model='ir.ui.view'>
-      <field name="name">control_seccion.seccion.view.form</field>
+      <field name="name">seccion form</field>
       <field name="model">control_seccion.seccion</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+            <button string="Finalizar periodo" type="object" icon="fa-check" class="btn btn-primary" name="fin_periodo" attrs="{'invisible': [('state','!=','begin')]}"/>
+            <field name="state" statusbar_visible="begin,ending" widget="statusbar"/>
+          </header>
           <group string='Datos básicos'>
             <group>
               <field name="grado"></field>
@@ -106,13 +110,14 @@
     </record>
 
     <record id='ctrl_seccion_tree' model='ir.ui.view'>
-      <field name="name">control_seccion.seccion.view.tree</field>
+      <field name="name">seccion.view.tree</field>
       <field name="model">control_seccion.seccion</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree colors="green: state == 'ending'" decoration-info="state == 'begin'">
           <field name="grado"></field>
           <field name="seccion"/>
           <field name="periodo"/>
+          <field name="state"/>
         </tree>
       </field>
     </record>
@@ -127,6 +132,7 @@
   </record>
 
   <menuitem id="main_salon_clases_menu" name="Salon de clases"/>
-  <menuitem id="salon_menu" name="Salon de clases" parent="main_salon_clases_menu" action="action_salon"/>
+  <menuitem id="salon_label" name="Salon de clases" parent="main_salon_clases_menu"/>
+  <menuitem id="salon_menu" name="Salon de clases" parent="salon_label" action="action_salon"/>
   </data>
 </odoo>

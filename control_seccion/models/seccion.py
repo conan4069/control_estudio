@@ -29,7 +29,7 @@ class control_grado(models.Model):
     grado = fields.Integer(string='Grado/ano',required=True,)
     nivel = fields.Selection(selection=[('grado','Grado'),('anio','Ano'),
         ('semestre','Semestre'),('trimestre','Trimestre')],
-        string=̈́'Nivel',default='grado',required=True,)
+        string='Nivel',default='grado',required=True)
 
     @api.multi
     def name_get(self):
@@ -71,9 +71,11 @@ class control_seccion(models.Model):
     alumnos = fields.Many2many(comodel_name='control_seccion.estudiantes',
         string='Alumnos',required=True,)
     max_lapso = fields.Integer(string="Lapsos",
-        help="Con esto se indica el maximo de periodos/cortes/lapsos")
+        help="Con esto se indica el maximo de periodos/cortes/lapsos",default=3)
     max_exam = fields.Integer(string='Mayor nota',
-        help="Esto indica el valor maximo que se puede sacar en una prueba")
+        help="Esto indica el valor maximo que se puede sacar en una prueba",default=20)
+    state = fields.Selection(selection=[('draft','Borrador'),
+        ('begin','Periodo iniciado'),('ending','Periodo finalizado')],default="draft",string="Estado",readonly=True,)
 
     @api.multi
     def name_get(self):
@@ -81,8 +83,12 @@ class control_seccion(models.Model):
         for values in self:
             res.append((values.id, str(values.grado.grado) + ' ' +
              values.grado.nivel) + ' Seccion ' + 
-            self.seccion + ' Periodo '+ self.periodo)
+            values.seccion + ' Periodo '+ values.periodo)
         return res
+
+    @api.multi
+    def fin_periodo(self):
+        self.write({'state':'ending'})
 
     @api.model
     def create(self,vals):
@@ -90,4 +96,5 @@ class control_seccion(models.Model):
         boletin = self.env['control_seccion.boletin'].create({
             'seccion': res.id,
         })
+        res.write({'state':'begin'})
         return res
