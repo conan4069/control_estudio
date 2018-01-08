@@ -334,12 +334,13 @@ class notas_template(models.TransientModel):
 
     @api.model
     def create(self,vals):
-        if(len(self.search([('seccion','=',vals['seccion'])])) == 0):
-            lapso = self.env['control_seccion.lapsos'].search([('id','=',vals['lapso'])]).alumnos_ids
+        res = super(notas_template,self).create(vals)
+        lapso = self.env['control_seccion.lapsos'].search([('id','=',vals['lapso'])]).alumnos_ids
             for x in lapso:
                 for m in x.materia:
-                    m.crear_indicadores()
-        res = super(notas_template,self).create(vals)
+                    if(len(self.search([('seccion','=',vals['seccion'])])) == 1):
+                        m.crear_indicadores()
+                    m.asignar_indicador()
         self.env['control_seccion.planificacion_line'].search([('id','=',vals['plan_id'])],limit=1).write({'check':True})       
         return res
 
