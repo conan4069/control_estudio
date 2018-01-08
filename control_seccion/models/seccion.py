@@ -71,9 +71,9 @@ class control_seccion(models.Model):
     alumnos = fields.Many2many(comodel_name='control_seccion.estudiantes',
         string='Alumnos',required=True,)
     max_lapso = fields.Integer(string="Lapsos",
-        help="Con esto se indica el maximo de periodos/cortes/lapsos",default=3)
+        help="Con esto se indica el maximo de periodos/cortes/lapsos",default=3,required=True,)
     max_exam = fields.Integer(string='Mayor nota',
-        help="Esto indica el valor maximo que se puede sacar en una prueba",default=20)
+        help="Esto indica el valor maximo que se puede sacar en una prueba",default=20,required=True,)
     state = fields.Selection(selection=[('draft','Borrador'),
         ('begin','Periodo iniciado'),('ending','Periodo finalizado')],default="draft",string="Estado",readonly=True,)
 

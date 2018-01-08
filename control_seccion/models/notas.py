@@ -44,6 +44,8 @@ class planificacion(models.Model):
         inverse_name="plan_id",string="indicadores")
     state = fields.Selection(selection=[('draft','Por planificar'),
             ('ending','Materia planificada')],default="draft",string="Estado",readonly=True)
+    min_logro = fields.Integer(string="Min. Logro",
+        help="Indica el valor minimo para asumir que es un logro",default=15)
 
     @api.multi
     def name_get(self):
@@ -117,8 +119,6 @@ class indicador_template(models.Model):
     tema = fields.Many2one(comodel_name="control_seccion.contenido",string="Tema")
     logros = fields.Char(string="Logros",required=True,)
     debilidades = fields.Char(string='Debilidades',required=True)
-    min_logro = fields.Integer(string="Min. Logro",
-        help="Indica el valor minimo para asumir que es un logro",default=15)
     plan_id = fields.Many2one(comodel_name="control_seccion.planificacion")
 
     @api.onchange('tema','plan_id')
@@ -183,6 +183,30 @@ class materias_lapso(models.Model):
         inverse_name="materia_alumno_id")
     notas = fields.One2many(comodel_name="control_seccion.notas_main",
         inverse_name="materia",string="Notas")
+
+    @api.multi
+    def asignar_indicador(self):
+        if(len(self.notas)>0):
+            porcent = 0
+            temas ={}
+            secci = self.notas[0].seccion.max_exam
+            for x in self.notas:        
+                pocent += x.porcentaje
+                if(x.contenido.id not in temas):
+                    temas[x.contenido.id] = (x.nota,1)
+                else:
+                    temas[x.contenido.id][0] += x.nota
+                    temas[x.contenido.id][1] += 1 
+
+            if(porcent == 100):
+                min_lograr = self.env['control_seccion.planificacion'].search(
+                    [('materia','=',self.materia.materia.id),('lapso','=',self.alumno_id.lapso.id)],limit=1).min_logro
+                for values in self.indicadores:            
+                    if(temas[values.tema.id][0]/temas[values.tema.id][1] >= min_lograr 
+                        and temas[values.tema.id][0]/temas[values.tema.id][1] <= secci):
+                        values.write({'check':True})
+                    else:
+                        values.write({'check2':True})
 
     @api.multi
     def name_get(self):

@@ -80,6 +80,9 @@
                     <field name="lineas_plan" context="{'default_plan_id':active_id,'plan':context.get('lineas_plan',False)}"/>
                 </page>
                 <page name="indicador_page" string="Indicador">
+                    <group>
+                        <field name="min_logro"/>
+                    </group>
                     <field name="indicador" context="{'default_plan_id':active_id,'plan':context.get('lineas_plan',False),'ind':context.get('indicador',False)}"/>
                 </page>
             </notebook>
@@ -134,7 +137,6 @@
             <field name="tema" options="{'no_create':True,'no_create_edit':True}"/>
             <field name="logros"/>
             <field name="debilidades"/>
-            <field name="min_logro"/>
         </tree>
       </field>
     </record>
@@ -145,13 +147,12 @@
       <field name="arch" type="xml">
         <form>
             <group>
+                <field name="tema" options="{'no_create':True,'no_create_edit':True}"/>
                 <field name="plan_id" invisible="1"/>
                 <group>
-                    <field name="tema" options="{'no_create':True,'no_create_edit':True}"/>
                     <field name="logros"/>
                 </group>
                 <group>
-                    <field name="min_logro"/>
                     <field name="debilidades"/>
                 </group>
             </group>
