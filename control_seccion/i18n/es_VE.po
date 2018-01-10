@@ -1,0 +1,602 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* control_seccion
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-08 21:03+0000\n"
+"PO-Revision-Date: 2018-01-08 21:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: control_seccion
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_materia_alumno_form
+msgid "Actualizar indicadores"
+msgstr "Actualizar indicadores"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_alumno_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_alumno
+msgid "Alumno"
+msgstr "Alumno"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_alumnos
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_lapso_form
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_seccion_form
+msgid "Alumnos"
+msgstr "Alumnos"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_alumnos_ids
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_alumnos_ids
+msgid "Alumnos ids"
+msgstr "Alumnos"
+
+#. module: control_seccion
+#: selection:control_seccion.grado,nivel:0
+msgid "Ano"
+msgstr "Año"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_last_name
+msgid "Apellido completo"
+msgstr "Apellido completo"
+
+#. module: control_seccion
+#: model:ir.ui.menu,name:control_seccion.boletin_menu
+msgid "Boletin"
+msgstr "Boletín"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_boletin_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_boletin_id
+msgid "Boletin id"
+msgstr "Boletín"
+
+#. module: control_seccion
+#: selection:control_seccion.seccion,state:0
+msgid "Borrador"
+msgstr "Borrador"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_identification
+msgid "Cedula/identificador"
+msgstr "Cédula/identificador"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_check
+msgid "Check"
+msgstr "Check"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_check2
+msgid "Check2"
+msgstr "Check"
+
+#. module: control_seccion
+#: model:ir.model.fields,help:control_seccion.field_control_seccion_seccion_max_lapso
+msgid "Con esto se indica el maximo de periodos/cortes/lapsos"
+msgstr "Con esto se indica el máximo de periodos/cortes/lapsos"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_contenido
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_plan_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_contenido
+msgid "Contenido"
+msgstr "Contenido"
+
+#. module: control_seccion
+#: model:ir.ui.menu,name:control_seccion.boletin_label
+msgid "Control de boletines"
+msgstr "Control de boletines"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_create_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_create_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: control_seccion
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_seccion_form
+msgid "Datos básicos"
+msgstr "Datos básicos"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_debilidades
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_debilidades
+msgid "Debilidades"
+msgstr "Debilidades"
+
+#. module: control_seccion
+#: sql_constraint:control_seccion.estudiantes:0
+msgid "Disculpe, esta cedula o indicador ya ha sido asignado a un estudiante"
+msgstr "Disculpe, esta cédula o indetinficador ya ha sido asignado a un estudiante"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_display_name
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_state
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_state
+msgid "Estado"
+msgstr "Estado"
+
+#. module: control_seccion
+#: model:ir.model.fields,help:control_seccion.field_control_seccion_seccion_max_exam
+msgid "Esto indica el valor maximo que se puede sacar en una prueba"
+msgstr "Esto indica el valor máximo que se puede sacar en una prueba"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_fecha
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: control_seccion
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_seccion_form
+msgid "Finalizar periodo"
+msgstr "Finalizar periodo"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_full_lapsos
+msgid "Full lapsos"
+msgstr "Full lapsos"
+
+#. module: control_seccion
+#: selection:control_seccion.grado,nivel:0
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_grado
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_grado
+msgid "Grado"
+msgstr "Grado"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_grado
+msgid "Grado/ano"
+msgstr "Grado/año"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_id
+msgid "ID"
+msgstr "ID"
+
+#. module: control_seccion
+#: model:ir.model.fields,help:control_seccion.field_control_seccion_planificacion_min_logro
+msgid "Indica el valor minimo para asumir que es un logro"
+msgstr "Indica el valor minimo para asumir que es un logro"
+
+#. module: control_seccion
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_planificacion_form
+msgid "Indicador"
+msgstr "Indicador"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_indicadores
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_materia_alumno_form
+msgid "Indicadores"
+msgstr "Indicadores"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_lapso
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_lapso
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_lapso
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_lapso
+msgid "Lapso"
+msgstr "Lapso"
+
+#. module: control_seccion
+#: selection:control_seccion.lapso,state:0
+msgid "Lapso finalizado"
+msgstr "Lapso finalizado"
+
+#. module: control_seccion
+#: selection:control_seccion.lapso,state:0
+msgid "Lapso iniciado"
+msgstr "Lapso iniciado"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_max_lapso
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_boletin_form
+msgid "Lapsos"
+msgstr "Lapsos"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion___last_update
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_write_uid
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_contenido_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_write_date
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_lineas_lapsos
+msgid "Lineas lapsos"
+msgstr "Lineas lapsos"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_logros
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_logros
+msgid "Logros"
+msgstr "Logros"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_alumnos_lapso_materia
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_materia
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_materia
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_materia
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_materia
+msgid "Materia"
+msgstr "Materia"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_materia_alumno_id
+msgid "Materia alumno id"
+msgstr "Materia"
+
+#. module: control_seccion
+#: selection:control_seccion.planificacion,state:0
+msgid "Materia planificada"
+msgstr "Materia planificada"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_materia
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_alumnos_lapso_form
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_seccion_form
+msgid "Materias"
+msgstr "Materias"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_max_exam
+msgid "Mayor nota"
+msgstr "Nota máxima"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_min_logro
+msgid "Min. Logro"
+msgstr "Min. Logro"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_grado_nivel
+msgid "Nivel"
+msgstr "Nivel"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_estudiantes_name
+msgid "Nombre completo"
+msgstr "Nombre completo"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materias_materia
+msgid "Nombre de la materia"
+msgstr "Nombre de la materia"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_nota
+msgid "Nota"
+msgstr "Nota"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_nota_total
+msgid "Nota total"
+msgstr "Nota total"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_materia_alumno_notas
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_notas
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_materia_alumno_form
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_notas_template_form
+msgid "Notas"
+msgstr "Notas"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_nro_lapso
+msgid "Nro de Lapso"
+msgstr "Nro de Lapso"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_periodo
+msgid "Periodo"
+msgstr "Periodo"
+
+#. module: control_seccion
+#: selection:control_seccion.seccion,state:0
+msgid "Periodo finalizado"
+msgstr "Periodo finalizado"
+
+#. module: control_seccion
+#: selection:control_seccion.seccion,state:0
+msgid "Periodo iniciado"
+msgstr "Periodo iniciado"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_plan_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_plan_id
+msgid "Plan id"
+msgstr "Planificación"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_plan_ids
+msgid "Plan ids"
+msgstr "Planificación"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_plan_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_lineas_plan
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_lapso_form
+#: model:ir.ui.view,arch_db:control_seccion.ctrl_planificacion_form
+msgid "Planificacion"
+msgstr "Planificación"
+
+#. module: control_seccion
+#: selection:control_seccion.planificacion,state:0
+msgid "Por planificar"
+msgstr "Por planificar"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_porcentaje
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_porcentaje
+msgid "Porcentaje"
+msgstr "Porcentaje"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_check
+msgid "Realizado"
+msgstr "Realizado"
+
+#. module: control_seccion
+#: model:ir.ui.menu,name:control_seccion.main_salon_clases_menu
+#: model:ir.ui.menu,name:control_seccion.salon_label
+#: model:ir.ui.menu,name:control_seccion.salon_menu
+msgid "Salon de clases"
+msgstr "Salón de clases"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_boletin_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_main_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_notas_template_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_seccion_seccion
+msgid "Seccion"
+msgstr "Sección"
+
+#. module: control_seccion
+#: model:ir.actions.act_window,name:control_seccion.action_boletin
+#: model:ir.actions.act_window,name:control_seccion.action_salon
+msgid "Seccion de clases"
+msgstr "Sección de clases"
+
+#. module: control_seccion
+#: selection:control_seccion.grado,nivel:0
+msgid "Semestre"
+msgstr "Semestre"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_lapso_state
+msgid "State"
+msgstr "Estado"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_main_tema
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_ind_template_tema
+msgid "Tema"
+msgstr "Tema"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_line_tipo_eval_id
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_tipo_eval_name
+msgid "Tipo de Evaluacion"
+msgstr "Tipo de Evaluación"
+
+#. module: control_seccion
+#: selection:control_seccion.grado,nivel:0
+msgid "Trimestre"
+msgstr "Trimestre"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_alumnos_lapso
+msgid "control_seccion.alumnos_lapso"
+msgstr "control_seccion.alumnos_lapso"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_boletin
+msgid "control_seccion.boletin"
+msgstr "control_seccion.boletin"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_contenido
+msgid "control_seccion.contenido"
+msgstr "control_seccion.contenido"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_estudiantes
+msgid "control_seccion.estudiantes"
+msgstr "control_seccion.estudiantes"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_grado
+msgid "control_seccion.grado"
+msgstr "control_seccion.grado"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_ind_main
+msgid "control_seccion.ind_main"
+msgstr "control_seccion.ind_main"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_ind_template
+msgid "control_seccion.ind_template"
+msgstr "control_seccion.ind_template"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_lapso
+msgid "control_seccion.lapso"
+msgstr "control_seccion.lapso"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_materia_alumno
+msgid "control_seccion.materia_alumno"
+msgstr "control_seccion.materia_alumno"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_materias
+msgid "control_seccion.materias"
+msgstr "control_seccion.materias"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_notas_main
+msgid "control_seccion.notas_main"
+msgstr "control_seccion.notas_main"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_notas_template
+msgid "control_seccion.notas_template"
+msgstr "control_seccion.notas_template"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_planificacion
+msgid "control_seccion.planificacion"
+msgstr "control_seccion.planificacion"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_planificacion_line
+msgid "control_seccion.planificacion_line"
+msgstr "control_seccion.planificacion_line"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_seccion
+msgid "control_seccion.seccion"
+msgstr "control_seccion.seccion"
+
+#. module: control_seccion
+#: model:ir.model,name:control_seccion.model_control_seccion_tipo_eval
+msgid "control_seccion.tipo_eval"
+msgstr "control_seccion.tipo_eval"
+
+#. module: control_seccion
+#: model:ir.model.fields,field_description:control_seccion.field_control_seccion_planificacion_indicador
+msgid "indicadores"
+msgstr "indicadores"
+

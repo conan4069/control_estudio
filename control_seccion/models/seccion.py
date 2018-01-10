@@ -1,5 +1,5 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -82,8 +82,8 @@ class control_seccion(models.Model):
         res = []
         for values in self:
             res.append((values.id, str(values.grado.grado) + ' ' +
-             values.grado.nivel) + ' Seccion ' + 
-            values.seccion + ' Periodo '+ values.periodo)
+             values.grado.nivel + ' Seccion ' + 
+            values.seccion + ' Periodo '+ values.periodo))
         return res
 
     @api.multi

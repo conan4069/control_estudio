@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from odoo import fields,api,models
 from odoo.exceptions import ValidationError
@@ -23,8 +24,8 @@ class boletin(models.Model):
         res = []
         for values in self:
             res.append((values.id,str(values.seccion.grado.grado) + ' ' +
-             values.seccion.grado.nivel) + ' Seccion ' + 
-            values.seccion.seccion + ' Periodo '+ values.seccion.periodo)
+             values.seccion.grado.nivel + ' Seccion ' + 
+            values.seccion.seccion + ' Periodo '+ values.seccion.periodo))
         return res
 
 class tipo_eval(models.Model):
@@ -45,7 +46,7 @@ class planificacion(models.Model):
     state = fields.Selection(selection=[('draft','Por planificar'),
             ('ending','Materia planificada')],default="draft",string="Estado",readonly=True)
     min_logro = fields.Integer(string="Min. Logro",
-        help="Indica el valor minimo para asumir que es un logro",default=15)
+        help="Indica el valor minimo para asumir que es un logro",default=15,required=True,)
 
     @api.multi
     def name_get(self):
@@ -94,7 +95,7 @@ class planificacion_lineas(models.Model):
         porcentaje_total = 0 
         if('plan' in context):
             for planes in context['plan']:
-                if(len(planes)==3):
+                if(len(planes)!=3):
                     continue
                 if(type(planes[2]) == bool):
                     if(planes[0]==4):
@@ -142,7 +143,7 @@ class indicador_template(models.Model):
                             list_no_contents.append(indicadores[2]['tema'])
 
             for planes in context['plan']:
-                if(len(planes)==3):
+                if(len(planes)!=3):
                     continue
                 if(type(planes[2]) == bool):
                     if(planes[0]==4):
@@ -176,9 +177,9 @@ class materias_lapso(models.Model):
     _name = "control_seccion.materia_alumno"
 
     materia = fields.Many2one(comodel_name="control_seccion.materias",
-        string="Materia",readonly=True, )
+        string="Materia",readonly=True,required=True, )
     alumno_id = fields.Many2one(comodel_name="control_seccion.alumnos_lapso",
-        readonly=True,string="Alumno")
+        readonly=True,string="Alumno",required=True,)
     indicadores = fields.One2many(comodel_name="control_seccion.ind_main",
         inverse_name="materia_alumno_id")
     notas = fields.One2many(comodel_name="control_seccion.notas_main",
@@ -243,7 +244,7 @@ class alumnos_lapsos(models.Model):
     @api.multi
     def crear_materias(self):
         for x in self:
-            for y in x.boletin_id.seccion.materia:
+            for y in x.lapso.boletin_id.seccion.materia:
                 x.materia += x.materia.new({
                     'materia':y.id,
                     'alumno_id':x.id
@@ -259,7 +260,7 @@ class lapsos(models.Model):
         inverse_name="lapso")
     plan_ids = fields.One2many(comodel_name="control_seccion.planificacion",
         inverse_name="lapso")
-    state= fields.Selection(selection=[('begin','Lapso iniciado'),('ending','Lapso finalizado')])
+    state= fields.Selection(selection=[('begin','Lapso iniciado'),('ending','Lapso finalizado')],default='begin')
 
     @api.onchange('nro_lapso')
     def onchange_plan_ids(self):
@@ -278,8 +279,8 @@ class lapsos(models.Model):
                         'alumnos_ids': y.id,
                         'lapso': x.id
                     })
-                    x.alumnos_ids += nuevo_alumno
-                    nuevo_alumno.crear_materias()
+                    # x.alumnos_ids += nuevo_alumno
+                x.alumnos_ids.crear_materias()
 
 class notas_template(models.TransientModel):
     _name = 'control_seccion.notas_template'
@@ -330,17 +331,16 @@ class notas_template(models.TransientModel):
                 [('materia','=',self.materia.id),('alumnos_ids','=',x.id)],limit=1).id     
             }
             nota_alum = self.plan_id.new(vals)
-            plan_id += nota_alum
 
     @api.model
     def create(self,vals):
         res = super(notas_template,self).create(vals)
         lapso = self.env['control_seccion.lapsos'].search([('id','=',vals['lapso'])]).alumnos_ids
-            for x in lapso:
-                for m in x.materia:
-                    if(len(self.search([('seccion','=',vals['seccion'])])) == 1):
-                        m.crear_indicadores()
-                    m.asignar_indicador()
+        for x in lapso:
+            for m in x.materia:
+                if(len(self.search([('seccion','=',vals['seccion'])])) == 1):
+                    m.crear_indicadores()
+                m.asignar_indicador()
         self.env['control_seccion.planificacion_line'].search([('id','=',vals['plan_id'])],limit=1).write({'check':True})       
         return res
 

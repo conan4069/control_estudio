@@ -1,8 +1,8 @@
 <odoo>
 <data>
     <!-- tema -->
-        <record id='ctrl_contenido_tree' model='ir.ui.view'>
-      <field name="name">contenido.view.tree</field>
+    <record id='ctrl_contenido_tree' model='ir.ui.view'>
+      <field name="name">ctr.contenido.view.tree</field>
       <field name="model">control_seccion.contenido</field>
       <field name="arch" type="xml">
         <tree>
@@ -73,7 +73,7 @@
             </header>
             <group>
                 <field name="lapso"/>
-                <field name="materia"/>
+                <field name="materia" readonly="1"/>
             </group>
             <notebook>
                 <page name="planificacion" string="Planificacion">
@@ -100,6 +100,7 @@
           <field name="plan_id" invisible="1"/>
           <field name="contenido"/>
           <field name="tipo_eval_id"/>
+          <field name="porcentaje"/>
           <field name="fecha"/>
           <field name="check"/>
         </tree>
@@ -118,6 +119,7 @@
                     <field name="fecha"/>
                 </group>
                 <group>
+                    <field name="porcentaje"/>
                     <field name="tipo_eval_id"/>
                     <field name="check"/>
                 </group>
@@ -166,7 +168,7 @@
       <field name="name">ind_main.view.tree</field>
       <field name="model">control_seccion.ind_main</field>
       <field name="arch" type="xml">
-        <tree create="false" editable="bottom">
+        <tree editable="bottom">
           <field name="materia_alumno_id" invisible="1"/>
           <field name="tema"/>
           <field name="logros"/>
@@ -204,7 +206,7 @@
       <field name="name">materia_alumno.view.tree</field>
       <field name="model">control_seccion.materia_alumno</field>
       <field name="arch" type="xml">
-        <tree create="false">
+        <tree>
           <field name="materia"/>
         </tree>
       </field>
@@ -214,7 +216,7 @@
       <field name="name">materia_alumno.view.form</field>
       <field name="model">control_seccion.materia_alumno</field>
       <field name="arch" type="xml">
-        <form create="false">
+        <form>
             <header>
                 <buttom type='object' 
                     name='crear_indicadores' 
@@ -260,6 +262,9 @@
       <field name="model">control_seccion.alumnos_lapso</field>
       <field name="arch" type="xml">
         <form>
+            <header>
+                <button type="object" name="crear_materias"></button>
+            </header>
             <group>
                 <group>
                     <field name="boletin_id" invisible="1"/>
@@ -303,7 +308,7 @@
                     <field name="plan_ids"/>
                 </page>
                 <page name="alumnos" string="Alumnos">
-                    <field name="alumnos_ids"/>
+                    <field name="alumnos_ids" context="{'default_boletin_id':context.get('default_boletin_id')}"/>
                 </page>
             </notebook>
         </form>
@@ -333,7 +338,7 @@
             </group>
             <notebook>
                 <page name="lapsos" string="Lapsos">
-                    <field name="lineas_lapsos" attrs="{'readonly':[('full_lapsos','=',True)]}"/>
+                    <field name="lineas_lapsos" attrs="{'readonly':[('full_lapsos','=',True)]}" context="{'default_boletin_id':active_id}"/>
                 </page>
             </notebook>
         </form>
@@ -428,6 +433,17 @@
         <field name="context">{}</field>
     </record>
 
+    <record id='action_notas' model="ir.actions.act_window">
+        <field name="name">Notas</field>
+        <field name="res_model">control_seccion.notas_template</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="notas_label" name="Control de notas" parent="main_salon_clases_menu"/>
+    <menuitem id="notas_menu" name="Notas" parent="notas_label" action="action_notas"/>
     <menuitem id="boletin_label" name="Control de boletines" parent="main_salon_clases_menu"/>
     <menuitem id="boletin_menu" name="Boletin" parent="boletin_label" action="action_boletin"/>
 </data>
